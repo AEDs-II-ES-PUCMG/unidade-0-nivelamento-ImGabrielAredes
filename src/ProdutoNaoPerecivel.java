@@ -1,4 +1,15 @@
-package PACKAGE_NAME;
+public class ProdutoNaoPerecivel extends Produto {
 
-public class ProdutoNaoPerecivel {
+    public ProdutoNaoPerecivel(String desc, double precoCusto, double margemLucro) {
+        super(desc, precoCusto, margemLucro);
+    }
+
+    public ProdutoNaoPerecivel(String descricao, double precoCusto) {
+        super(descricao, precoCusto);
+    }
+
+    @Override
+    public double valorDeVenda(){
+        return precoCusto * (1 + margemLucro);
+    }
 }
