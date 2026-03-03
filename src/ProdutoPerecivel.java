@@ -12,7 +12,7 @@ public class ProdutoPerecivel extends Produto {
         if (dataDeValidade.isBefore(LocalDate.now())) {
             throw new IllegalArgumentException("O produto está vencido!");
         }
-        dataDeValidade = dataDeValidade;
+        this.dataDeValidade = dataDeValidade;
 
     }
 
@@ -26,13 +26,12 @@ public class ProdutoPerecivel extends Produto {
         return (precoCusto * (1 + margemLucro)) * (1 - desconto);
     }
 
-    @Override
-    public String toString(){
-        DateTimeFormatter DataTimeFormatter = null;
-        DateTimeFormatter formato = DataTimeFormatter.ofPattern("dd/mm/yyyy");
+@Override
+public String toString(){
+    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        String dados = super.toString();
-        dados += "\nVálido até " + formato.format(dataDeValidade);
-        return dados;
-    }
+    String dados = super.toString();
+    dados += "\nVálido até " + formato.format(dataDeValidade);
+    return dados;
+}
 }
